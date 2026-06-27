@@ -7,10 +7,10 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <style>
-        /* Hero Section - Teal banner at top of the page, centered layout */
+        /* Hero Section - Sage banner at top of the page, centered layout */
         .hero {
-            background-color: #2c7a7b;
-            color: white;
+            background-color: #8FA888;
+            color: rgb(250, 243, 232);
             text-align: center;
             padding: 56px 24px; /* 56px top/bottom 24px left/right spacing */
             border-radius: 8px;
@@ -19,6 +19,10 @@
             margin-right: 0px;
             transition: 1s ease-in-out;
         }
+
+        .hero::selection { /*Selection Color*/
+            background-color:#A85F52;
+        } 
 
         .hero:hover {
             border-radius: 8px;
@@ -30,7 +34,7 @@
 
         /* Main heading inside of hero */
         .hero h2 {
-            color: white;
+            color: #FAF3E8;
             font-size: 32px;
             margin-bottom: 12px;
         }
@@ -39,11 +43,194 @@
         .hero p {
             width: 580px;
             margin: 0 auto 24px auto; /* centered horizontally with a 24px gap below */
-            color: white;
+            color: rgba(250, 243, 232, 0.85);
             font-size: 16px;
             line-height: 27px; 
         }
 
+        /*Badge about hero heading "UN SDG 12" */
+        .hero .label {
+            display: inline-block;
+            background-color: rgba(250, 243, 232, 0.18);  /* faint cream pill */
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+            color: rgba(250, 243, 232, 0.85);
+        }
+
+        /*Missions Section - Below hero section to explain the mission of the project */
+
+        .missions {
+            display: grid;
+            grid-template-columns: repeat(3,1fr); /* Paritions the section into 3 equal columns using CSS grid*/
+            gap: 32px;
+            margin-bottom: 56px;
+        }
+
+        .mission-block p::selection { /*Mission selection color change*/
+            background-color:#8FA888;
+        }
+
+        /* Mission heading  */
+        .mission-block h3 {
+            color: #8FA888;
+            margin-bottom: 8px;
+            font-size: 19px;
+        }
+
+        /* Mission Paragraph */
+        .mission-block p {
+            font-size: 15px;
+            color: #5C4B33;
+            line-height: 1.7;
+        }
+
+        /* Topics Grid Section - Contains the Content cards  */
+
+        .topic-grid {
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            gap: 20px;
+        }
+
+        /* Topic card Section  - each clickable card in the topic grid.  Because
+         *     the card is actually an <a> tag, the whole card is a link. */
+        .topic-card {
+            background-color: #EDE3D0;           /* slightly deeper cream card background */
+            border-radius: 8px;
+            padding: 32px 24px;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            border: 1px solid rgba(143, 168, 136, 0.25);  
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        
+        .topic-card:hover {
+            transform: translateY (-5px);
+            box-shadow: 0 8px 24px rgba(201, 123, 109, 0.2); /*underglow*/
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+
+        /*Topic card heading*/
+
+        .topic-card h4 {
+            color: #243620;
+            margin-bottom: 6px;
+        }
+
+        /*Topic card paragraph*/
+        .topic-card p {
+            font-size: 14px;
+            color: #8A7560;
+        }
+
+        /*Responsive - stack to 1 column on mobile */
+        @media (max-width: 768px) {
+            .missions {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            .topic-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            .hero {
+                padding: 40px 20px;
+            }
+
+            .hero h2 {
+                font-size: 25px;
+            }
+        }
 
     </style>
+</head>
+
+<body>
+    <!--Navigation bar and Header: This contains the site logo and the main nav bar.-->
+    <header class="site-header">
+        <nav class="main-nav">
+            <a href="home.html" class="nav-logo"><img src="images/logo.png" alt="F.A.B.R.I.C. Logo"></a>
+            <ul>
+                <li><a class="active" href="home.html">Home</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="ais.html">Impact Simulator</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="sitemap.html">Sitemap</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!--Main Content: Information about the project-->
+    <main>
+        <div class="container">
+
+            <!-- Hero Section - The large sage banner at the top of the page.-->
+            <section class="hero"> 
+            <span class="label">UN SDG 12; Responsible Consumption</span>
+            <h2>Reimagine Your Wardrobe</h2>
+            <p><strong>F.A.B.R.I.C.</strong> is a student-run project about sustainable fashion and textile recycling.About 92 million tonnes of textile waste gets dumped in landfills every year. We're here to talk about that, and what we can do differently.</p>
+            <a href="ais.html" class="btn"> Try the Impact Simulator</a>
+            </section>
+
+            <!-- Missions Section - Three equal-width columns laid out with CSS grid. -->
+            <div class="section-title"><h2>What We're About</h2></div>
+
+            <div class="missions">
+                <div class="mission-block">
+                    <h3>The Problem</h3>
+                    <p>Fast fashion is the second-largest polluting industry on the planet. The average person throws out about 31 kg of clothing a year, and synthetic fabrics sit in landfill for 200 years leaking microplastics into soil and water.</p>
+                </div>
+                <div class="mission-block">
+                    <h3>Our Goal</h3>
+                    <p>We want people on campus thinking about where their clothes come from and where they end up. Thrifting, upcycling, swapping &mdash; there are loads of alternatives to buying new stuff every time you want something to wear.</p>
+                </div>
+                <div class="mission-block">
+                    <h3>Take Action</h3>
+                    <p>Curious how your habits stack up? Head over to the <a href="ais.html">Impact Simulator</a> and pick the sustainable habits you already do. You might be making more of a difference than you think.</p>
+                </div>
+            </div>
+
+            <!-- Topics Section - Features a 2 column CSS grid with clickable cards. -->
+             <div class="section-title"><h2>Explore Topics</h2></div>
+             <div class="topic-grid">
+                <a href="content_ST1.html" class="topic-card">
+                    <h4>Upcycling</h4>
+                    <p>Turn old stuff into something you'd actually want to wear</p>
+                </a>
+                <a href="content_ST2.html" class="topic-card">
+                    <h4>Thrift Shopping</h4>
+                    <p>Find one-of-a-kind pieces and give pre-loved clothes another go</p>
+                </a>
+                <a href="content_ST3.html" class="topic-card">
+                    <h4>Fabric Types</h4>
+                    <p>Which fabrics are kinder to the plant and which ones aren't</p>
+                </a>
+                <a href="content_ST4.html" class="topic-card">
+                    <h4>Mending & Repair</h4>
+                    <p>Fix it up instead of throwing it out</p>
+                </a>
+             </div>
+
+        </div>
+    </main>
+
+    <!-- Footer Section - Bottom bar across the site. -->
+     <footer class="site-footer">
+        <div class="footer-inner">
+            <p>&copy; 2026 F.A.B.R.I.C. Collective &mdash; SDG 12</p>
+        <div class="footer-divider">
+            <a href="pageEditor_ST1.html">Page Editor - Senuka</a> | <a href="validation.ST1.html">Validation - Senuka</a>
+        </div>
+        </div>
+     </footer>
+
+</body>
 </html>
